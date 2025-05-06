@@ -21,7 +21,7 @@ class DenseBlock(nn.Module):
             
     def forward(self, X):
         for blk in self.net:
-            Y = blk(X)# 连接通道维度上每个块的输入和输出
+            Y = blk(X)
             X = torch.cat((X, Y), dim = 1)
         out = self.act(X)
         return out
